@@ -11,15 +11,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: black;
+            background-color: lightblue;
         }
 
         .container {
             width: 450px;
-            background-color: #1b4160;
+            background-color: white;
             color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px white;
+            box-shadow: 0px 0px 5px grey;
             padding: 20px;
         }
 
@@ -37,7 +36,7 @@
         }
 
         h2 {
-            color: white;
+            color: #0dcaf0;
             margin-top: 0;
             padding-bottom: 15px;
             border-bottom: 1px solid #444;
@@ -47,7 +46,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: white;
+            color: grey;
         }
 
         input[type="text"],
@@ -78,11 +77,21 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #10bd01;
+            background-color: green;
+            color: white !important;
+        }
+
+        input[type="submit"] {
+            background-color: green;
+            color: white !important;
         }
 
         .back:hover {
             background-color: red;
+        }
+        .back{
+            color: white !important;
+            background-color: red !important ;
         }
         select {
             padding: 10px;
@@ -102,6 +111,10 @@
         option {
             padding: 5px;
         }
+
+        #deadline{
+            margin-bottom: 15px;
+        }
     </style>
     <title>Aufgabe anlegen</title>
 </head>
@@ -111,19 +124,19 @@
 <div class="container">
 
     <form action="#" th:action="@{/aufgaben/save}" th:object="${aufgabe}" method="post">
-        <h2>Projekt anlegen</h2>
+        <h2>Neue Aufgabe erstellen</h2>
         <form>
 
             <input type="hidden" th:field="*{id}">
 
-            <label for="titel">Titel:</label>
+            <label for="titel">Aufgabenname:</label>
             <input type="text" th:field="*{titel}" id="titel">
 
             <label for="beschreibung">Beschreibung:</label>
             <input type="text" th:field="*{beschreibung}" id="beschreibung" name="beschreibung">
 
-            <label for="status">Status:</label>
-            <input type="text" th:field="*{status}" id="status" name="status">
+            <!-- <label for="status">Status:</label>
+            <input type="text" th:field="*{status}" id="status" name="status"> -->
 
             <label for="deadline">Deadline:</label>
             <input type="date"  th:field="*{deadline}" id="deadline" required>
@@ -145,17 +158,17 @@
                 <option value="harry">harry</option>
             </select>
             <br><br>
-            <label for="projektleiter">Projektleiter auswählen:</label>
+            <!-- <label for="projektleiter">Projektleiter auswählen:</label>
             <select th:field="*{projektleiter}" id="projektleiter" name="projektleiter">
                 <option value="pep">pep</option>
                 <option value="jose">jose</option>
                 <option value="carlo">carlo</option>
                 <option value="zinedine">zinedine</option>
-            </select>
-            <br><br>
-            <a th:href="@{/aufgaben}" class="back"> Back to Aufgaben</a>
+            </select> -->
+            <br>
+            <a th:href="@{/aufgaben}" class="back"> Zurück</a>
 
-            <input type="submit" value="Save">
+            <input type="submit" value="Erstellen">
 
         </form>
 

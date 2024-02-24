@@ -47,6 +47,18 @@
         .back-button:hover {
             background-color: #45a049;
         }
+
+        .light{
+            background-color: #0dcaf0 !important;
+            color: white;
+        }
+
+        .headerWrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
     </style>
     <script>
         function displayText() {
@@ -61,12 +73,21 @@
 
 <div class="container">
 
-    <h3>Mitarbeiter</h3>
+    
+
+    <div class="headerWrapper">
+        <h3>Mitarbeiter</h3>
+        <button class="back-button" onclick="goBack()"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
+          </svg> Zurück</button>
+
+       
+    </div>
 
     <hr>
 
     <table class="table table-bordered table-striped">
-        <thead class="table-dark">
+        <thead class="light">
         <tr>
             <th>ID</th>
             <th>First Name</th>
@@ -87,13 +108,15 @@
             <td th:text="${tempMitarbeiter.rolle}"/>
             <td th:text="${tempMitarbeiter.faehigkeiten}"/>
             <td th:text="${tempMitarbeiter.user}"/>
+    
+          
         </tr>
         </tbody>
     </table>
 
-    <form action="" th:action="@{/logout}" method="post">
+    <!-- <form action="" th:action="@{/logout}" method="post">
         <input class="logout" type="submit" value="logout"/>
-    </form>
+    </form> -->
 
     <script>
         function goBack() {
@@ -101,7 +124,7 @@
         }
     </script>
 
-    <button class="back-button" onclick="goBack()">Go Back</button>
+    
 
 
 </div>
