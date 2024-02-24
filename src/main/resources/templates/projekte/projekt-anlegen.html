@@ -11,15 +11,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: black;
+            background-color: lightblue;
         }
 
         .container {
             width: 450px;
-            background-color: #1b4160;
+            background-color: white;
             color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px white;
+            box-shadow: 0px 0px 5px grey;
             padding: 20px;
         }
 
@@ -37,7 +36,7 @@
         }
 
         h2 {
-            color: white;
+            color: #0dcaf0;
             margin-top: 0;
             padding-bottom: 15px;
             border-bottom: 1px solid #444;
@@ -47,7 +46,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: white;
+            color: grey;
         }
 
         input[type="text"],
@@ -78,11 +77,21 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #10bd01;
+            background-color: green;
+            color: white !important;
+        }
+
+        input[type="submit"] {
+            background-color: green;
+            color: white !important;
         }
 
         .back:hover {
             background-color: red;
+        }
+        .back{
+            color: white !important;
+            background-color: red !important ;
         }
 
         select {
@@ -103,6 +112,9 @@
         option {
             padding: 5px;
         }
+        #deadline{
+            margin-bottom: 15px;
+        }
 
     </style>
     <title>Projekt anlegen</title>
@@ -113,19 +125,20 @@
 <div class="container">
 
     <form action="#" th:action="@{/projekte/save}" th:object="${projekt}" method="post">
-        <h2>Projekt anlegen</h2>
+        <h2>Neues Projekt erstellen</h2>
         <form>
 
             <input type="hidden" th:field="*{id}">
 
-            <label for="projektName">ProjektName:</label>
+            <label for="projektName">Projektname:</label>
             <input type="text" th:field="*{projektName}" id="projektname">
 
-            <label for="projektName">ErstellDatum:</label>
-            <input type="date"  th:field="*{erstellDatum}" id="erstellDatum" required>
+            <!-- <label for="projektName">Datum:</label>
+            <input type="date"  th:field="*{erstellDatum}" id="erstellDatum" required> -->
 
-            <label for="status">Status:</label>
-            <input type="text" th:field="*{status}" id="status" name="status">
+            <!-- <label for="status">Status:</label>
+            <input type="text" th:field="*{status}" id="status" name="status"> -->
+
 
             <label for="beschreibung">Beschreibung:</label>
             <input type="text" th:field="*{beschreibung}" id="beschreibung" name="beschreibung">
@@ -133,13 +146,13 @@
             <label for="projektName">Deadline:</label>
             <input type="date"  th:field="*{deadline}" id="deadline" required>
 
-                <label for="ersteller">Ersteller auswählen:</label>
+                <!-- <label for="ersteller">Ersteller auswählen:</label>
                 <select th:field="*{ersteller}" id="ersteller" name="ersteller">
                     <option value="pep">pep</option>
                     <option value="jose">jose</option>
                     <option value="carlo">carlo</option>
                     <option value="zinedine">zinedine</option>
-                </select>
+                </select> -->
 
 
                 <label for="projektleiter">Projektleiter auswählen:</label>
@@ -152,9 +165,9 @@
 
 
             <br><br>
-            <a th:href="@{/projekte}" class="back"> Back to Projekte</a>
+            <a th:href="@{/projekte}" class="back"> Zurück</a>
 
-            <input type="submit" value="Save">
+            <input type="submit" value="Erstellen">
 
         </form>
 
